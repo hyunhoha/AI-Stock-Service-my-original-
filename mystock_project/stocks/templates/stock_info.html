@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <h1>게시판</h1>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <table class="table-light">
+            <thead class="thead-light">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">종목번호</th>
+                    <th scope="col">날짜</th>
+                    <th scope="col">종가</th>
+	        	</tr>
+            </thead>
+            <tbody class="text-dark">
+            {% for stock in stock_data %}
+            <tr>
+                <th scope="row"> {{stock.id }}</th>
+                <th>{{ stock.stock_number }}</a></th>
+                <th>{{ stock.price_dttm | date:'Y-m-d'}}</th>
+                <th>{{ stock.end_price }} </th>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
